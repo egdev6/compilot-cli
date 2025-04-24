@@ -1,0 +1,57 @@
+{
+	"name": "cli-boilerplate",
+	"version": "1.0.0",
+	"license": "MIT",
+	"bin": {
+		"cli-boilerplate": "./dist/cli.js --loader esm-module-alias/loader"
+	},
+	"type": "module",
+	"engines": {
+		"node": ">=16"
+	},
+	"scripts": {
+		"build": "tsc && tsc-alias && chmod +x ./dist/cli.js",
+		"dev": "tsc --watch",
+		"clean": "rm -rf dist node_modules package-lock.json && npm cache clean --force",
+		"reinstall": "npm run clean && npm install",
+		"biome-all": "biome check --write .",
+		"biome-staged": "biome check --write --staged --verbose",
+		"pre-commit": "biome-staged && tsc"
+	},
+	"files": ["dist"],
+	"dependencies": {
+		"ink": "5.2.0",
+		"ink-divider": "^4.1.1",
+		"ink-multi-select": "^2.0.0",
+		"ink-select-input": "^6.1.0",
+		"ink-spinner": "^5.0.0",
+		"module-alias": "2.2.3",
+		"react": "18.3.1"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"@evilmartians/lefthook": "1.11.11",
+		"@sindresorhus/tsconfig": "7.0.0",
+		"@types/react": "19.1.2",
+		"ava": "6.2.0",
+		"chalk": "5.4.1",
+		"ts-node": "10.9.2",
+		"tsc-alias": "1.8.15",
+		"typescript": "5.8.3",
+		"xo": "0.60.0"
+	},
+	"ava": {
+		"extensions": {
+			"ts": "module",
+			"tsx": "module"
+		},
+		"nodeArguments": ["--loader=ts-node/esm"]
+	},
+	"xo": {
+		"extends": "xo-react",
+		"prettier": true,
+		"rules": {
+			"react/prop-types": "off"
+		}
+	}
+}

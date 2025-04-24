@@ -1,0 +1,15 @@
+{
+	"extends": "@sindresorhus/tsconfig",
+	"compilerOptions": {
+		"outDir": "dist",
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["./source/*"],
+			"@components/*": ["./source/components/*"],
+			"@models/*": ["./source/models/*"],
+			"@hooks/*": ["./source/hooks/*"],
+			"@utils/*": ["./source/utils/*"]
+		}
+	},
+	"include": ["source"]
+}
