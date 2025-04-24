@@ -1,7 +1,7 @@
-import Test from "@components/test/index.js";
-import type { AppProps } from "@models/app.js";
-import React from "react";
+import Test from '@components/test/index.js';
+import type { AppProps } from '@models/app.js';
+import React from 'react';
 
 export default function App({ name }: AppProps) {
-	return <Test name={name} />;
+  return <Test name={name} />;
 }

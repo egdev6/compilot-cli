@@ -1,3 +1,3 @@
 export type AppProps = {
-	name?: string;
+  name?: string;
 };
