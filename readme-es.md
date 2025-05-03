@@ -8,6 +8,13 @@
 
 <div align="center">
 
+[![ES][es-shield]][readme-es-url]
+[![EN][en-shield]][readme-en-url]
+
+</div>
+
+<div align="center">
+
 [![Compilot-cli-Banner.png](https://i.postimg.cc/MTGc6VGK/Compilot-cli-Banner.png)](https://postimg.cc/WDQpSDrQ)
 
 
@@ -295,5 +302,7 @@ Este proyecto está bajo la licencia MIT. Consulta el archivo LICENSE para más 
 [license-url]: https://github.com/egdev6/compilot-cli/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/egdev6
-[readme-es-url]:https://github.com/egdev6/compilot-cli/
+[readme-es-url]:https://github.com/egdev6/compilot-cli/blob/main/readme-es.md
 [readme-en-url]:https://github.com/egdev6/compilot-cli/
+[es-shield]: https://img.shields.io/badge/ES-red.svg?style=for-the-badge
+[en-shield]: https://img.shields.io/badge/EN-blue.svg?style=for-the-badge
