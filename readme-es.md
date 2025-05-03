@@ -41,6 +41,19 @@ Compilot CLI es una herramienta diseñada para automatizar la creación de compo
 
 • ⚙️ Configuración Personalizable: Puedes sobrescribir rutas, nombres y comportamiento por defecto mediante un archivo de configuración propio.
 
+## 🎨 UI
+
+<table>
+	<tr>
+		<td>
+			
+[![SCR-20250503-rnaf.png](https://i.postimg.cc/Jzn8WrxN/SCR-20250503-rnaf.png)](https://postimg.cc/SJw36pwR)
+  		</td>
+		<td>
+  [![SCR-20250503-rnpp.png](https://i.postimg.cc/2SqtwVTK/SCR-20250503-rnpp.png)](https://postimg.cc/87Swkk2R)</td>
+	</tr>
+</table>
+
 ## 📦 Instalación
 
 ```bash
