@@ -134,7 +134,7 @@ If you want to customize the paths or file extensions, you can create a `compilo
 		"language": "javascript",
 		"generatedFiles": false,
 	},
-  "components": {
+  	"components": {
 		"base": "src/components",
 		"atomic": false,
 		"naming": {
