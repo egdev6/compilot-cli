@@ -1,73 +1,73 @@
 {
-	"name": "@egdev6/compilot-cli",
-	"version": "1.0.1",
-	"license": "MIT",
-	"bin": {
-		"compilot-cli": "./build/index.js"
-	},
-	"type": "module",
-	"engines": {
-		"node": ">=16"
-	},
-	"scripts": {
-		"build": "tsc && tsc-alias && ncc build dist/cli.js -o build && chmod +x ./build/index.js",
-		"postbuild": "cp -r source/plop-files/templates dist/plop-files/",
-		"dev": "tsc --watch",
-		"clean": "rm -rf dist node_modules package-lock.json && npm cache clean --force",
-		"reinstall": "npm run clean && npm install",
-		"biome-all": "biome check --write .",
-		"biome-staged": "biome check . --write --staged --verbose",
-		"pre-commit": "npm run biome-staged && tsc && git add -A"
-	},
-	"files": ["dist", "build"],
-	"dependencies": {
-		"cli-tree": "0.0.1",
-		"ink": "5.2.0",
-		"ink-divider": "4.1.1",
-		"ink-multi-select": "2.0.0",
-		"ink-select-input": "6.1.0",
-		"ink-spinner": "5.0.0",
-		"ink-text-input": "6.0.0",
-		"module-alias": "2.2.3",
-		"nanoid": "5.1.5",
-		"node-plop": "0.32.0",
-		"open": "10.1.1",
-		"plop": "4.0.1",
-		"react": "18.3.1"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "1.9.4",
-		"@sindresorhus/tsconfig": "7.0.0",
-		"@types/react": "19.1.2",
-		"@vercel/ncc": "0.38.3",
-		"ava": "6.2.0",
-		"chalk": "5.4.1",
-		"lefthook": "1.11.11",
-		"ts-node": "10.9.2",
-		"tsc-alias": "1.8.15",
-		"typescript": "5.8.3",
-		"xo": "0.60.0"
-	},
-	"ava": {
-		"extensions": {
-			"ts": "module",
-			"tsx": "module"
-		},
-		"nodeArguments": ["--loader=ts-node/esm"]
-	},
-	"xo": {
-		"extends": "xo-react",
-		"prettier": true,
-		"rules": {
-			"react/prop-types": "off"
-		}
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/egdev6/compilot-cli.git"
-	},
-	"bugs": {
-		"url": "https://github.com/egdev6/compilot-cli/issues"
-	},
-	"homepage": "https://github.com/egdev6/compilot-cli#readme"
+  "name": "@egdev6/compilot-cli",
+  "version": "1.0.1",
+  "license": "MIT",
+  "bin": {
+    "compilot-cli": "./build/index.js"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "build": "tsc && tsc-alias && ncc build dist/cli.js -o build && chmod +x ./build/index.js",
+    "postbuild": "cp -r source/plop-files/templates dist/plop-files/",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist node_modules package-lock.json && npm cache clean --force",
+    "reinstall": "npm run clean && npm install",
+    "biome-all": "biome check --write .",
+    "biome-staged": "biome check . --write --staged --verbose",
+    "pre-commit": "npm run biome-staged && git add -A"
+  },
+  "files": ["dist", "build"],
+  "dependencies": {
+    "cli-tree": "0.0.1",
+    "ink": "5.2.0",
+    "ink-divider": "4.1.1",
+    "ink-multi-select": "2.0.0",
+    "ink-select-input": "6.1.0",
+    "ink-spinner": "5.0.0",
+    "ink-text-input": "6.0.0",
+    "module-alias": "2.2.3",
+    "nanoid": "5.1.5",
+    "node-plop": "0.32.0",
+    "open": "10.1.1",
+    "plop": "4.0.1",
+    "react": "18.3.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@sindresorhus/tsconfig": "7.0.0",
+    "@types/react": "19.1.2",
+    "@vercel/ncc": "0.38.3",
+    "ava": "6.2.0",
+    "chalk": "5.4.1",
+    "lefthook": "1.11.11",
+    "ts-node": "10.9.2",
+    "tsc-alias": "1.8.15",
+    "typescript": "5.8.3",
+    "xo": "0.60.0"
+  },
+  "ava": {
+    "extensions": {
+      "ts": "module",
+      "tsx": "module"
+    },
+    "nodeArguments": ["--loader=ts-node/esm"]
+  },
+  "xo": {
+    "extends": "xo-react",
+    "prettier": true,
+    "rules": {
+      "react/prop-types": "off"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/egdev6/compilot-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/egdev6/compilot-cli/issues"
+  },
+  "homepage": "https://github.com/egdev6/compilot-cli#readme"
 }

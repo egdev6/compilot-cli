@@ -8,12 +8,6 @@
 
 <div align="center">
 
-
-
-</div>
-
-<div align="center">
-
 [![Compilot-cli-Banner.png](https://i.postimg.cc/MTGc6VGK/Compilot-cli-Banner.png)](https://postimg.cc/WDQpSDrQ)
 
 

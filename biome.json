@@ -1,8 +1,8 @@
 {
   "$schema": "https://biomejs.dev/schemas/1.9.2/schema.json",
   "files": {
-    "ignore": ["node_modules", "dist", ".vscode"],
-    "include": ["source/**/*.js", "source/**/*.jsx", "source/**/*.ts", "source/**/*.tsx"]
+    "ignore": ["node_modules", "dist", "build"],
+    "include": ["**/*"]
   },
   "formatter": {
     "attributePosition": "auto",
