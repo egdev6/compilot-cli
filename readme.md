@@ -41,6 +41,18 @@ Compilot CLI is a tool designed to automate the creation of React components, pa
 
 • ⚙️ Customizable Configuration: Default paths, language, files activation or naming customization can be overridden with a user-defined configuration file.
 	
+## 🎨 UI
+
+<table>
+	<tr>
+		<td>
+			
+[![SCR-20250503-rnaf.png](https://i.postimg.cc/Jzn8WrxN/SCR-20250503-rnaf.png)](https://postimg.cc/SJw36pwR)
+  		</td>
+		<td>
+  [![SCR-20250503-rnpp.png](https://i.postimg.cc/2SqtwVTK/SCR-20250503-rnpp.png)](https://postimg.cc/87Swkk2R)</td>
+	</tr>
+</table>
 
 ## 📦 Installation
 
