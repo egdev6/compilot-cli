@@ -1,8 +1,0 @@
-import { api } from '{{pathToApi}}';
-import type { {{pascalName}}Props, {{pascalName}}ResponseProps } from '{{pathToTypes}}/{{camelName}}ServiceTypes';
-
-export const {{kebabCase http}}{{pascalName}} = async ({ test }: {{pascalName}}Props): Promise<{{pascalName}}ResponseProps[]> => {
-  const response = await api.{{kebabCase http}}(`/{{kebabName}}?test=${test}`);
-  const data = response.data;
-  return data;
-};
