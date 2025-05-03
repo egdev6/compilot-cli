@@ -1,7 +1,6 @@
 import type { DataProps } from '@models/app.js';
 import { isWarning } from '@utils/functions.js';
 import loadConfig from '@utils/load-config.js';
-import { setupPlop } from '@utils/setup-plop.js';
 import { Box } from 'ink';
 import nodePlop from 'node-plop'; // Importa node-plop para usar la funcionalidad de generación
 import React, { type FC, useEffect, useState } from 'react';
@@ -13,6 +12,7 @@ import NameInput from './components/steps/NameInput.js';
 import NewAction from './components/steps/NewAction.js';
 import StateInput from './components/steps/StateInput.js';
 import TypeInput from './components/steps/TypeInput.js';
+import { setupPlop } from './plop-files/setup-plop.js';
 
 const defaultData = {
   name: '',
@@ -32,6 +32,7 @@ const App: FC = () => {
   const [step, setStep] = useState('type');
   const [dataList, setDataList] = useState([] as DataProps[]);
   const [data, setData] = useState<DataProps>(defaultData);
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   const [config, setConfig] = useState(undefined as any);
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>

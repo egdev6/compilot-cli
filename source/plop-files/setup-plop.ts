@@ -1,12 +1,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import type { DataProps } from '@models/app.js';
-import { addComponentActions } from '@plop-files/types/component.js';
-import { addHookActions } from '@plop-files/types/hook.js';
-import { addPageActions } from '@plop-files/types/page.js';
-import { addServiceActions } from '@plop-files/types/service.js';
 import loadConfig from '@utils/load-config.js';
 import handlebars from 'handlebars';
+import { addComponentActions } from './types/component.js';
+import { addHookActions } from './types/hook.js';
+import { addPageActions } from './types/page.js';
+import { addServiceActions } from './types/service.js';
 
 const srcRoot = path.resolve(process.cwd());
 
@@ -37,24 +37,18 @@ export const setupPlop = (plop: any) => {
     const raw = text || '';
     const padExtra = ' '.repeat(Number(spaces));
 
-    // Detectar indentación base de la línea donde se encuentra el patrón
     const baseMatch = patternLine.match(/^(\s*)/);
     const baseIndent = baseMatch ? baseMatch[1] : '';
     const fullPad = baseIndent + padExtra;
 
-    console.log({ padExtra, baseMatch, baseIndent, fullPad });
-
-    // Normalizar contenido: si es una sola línea con etiquetas, separarlas
     const normalized = raw.includes('\n') ? raw : raw.replace(/(>)(<)/g, '$1\n$2');
-    console.log('AQUI->', normalized);
-    // Ajustar la indentación de cada línea
+
     const normalizedFormated = normalized
       .split('\n')
       .map((line) => {
         return fullPad + line.trim();
       })
       .join('\n');
-    console.log(normalizedFormated);
     return normalizedFormated;
   });
 
@@ -74,26 +68,21 @@ export const setupPlop = (plop: any) => {
       throw `❌ Pattern not found in ${filePath}`;
     }
 
-    const matchedLine = match[0]; // ej: {/*-- plop hook --*/}<App />
+    const matchedLine = match[0];
     const fixedPlaceholder = matchedLine.replace(/(\/\*.*\*\/)(\s*)(<)/, '$1\n$3');
     const indent = matchedLine.match(/^(\s*)/)?.[1] ?? '';
 
-    // Renderizado como siempre
     const templateSource = fs.readFileSync(templateFile, 'utf8');
     const compiled = handlebars.compile(templateSource);
     const rendered = compiled({ ...answers, placeholder: fixedPlaceholder });
 
-    // Aplica indentación al bloque entero
     const indentedRendered = rendered
       .split('\n')
       .map((line) => indent + line)
       .join('\n');
 
-    // Reemplaza el pattern original SIN los espacios
     const updated = content.replace(matchedLine, indentedRendered);
     fs.writeFileSync(filePath, updated, 'utf8');
-
-    return `✅ Provider inserted in ${filePath}`;
   });
 
   plop.setActionType('warning', (_answers: any, config: any) => {

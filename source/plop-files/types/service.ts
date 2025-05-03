@@ -1,4 +1,5 @@
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { assertPatternInFile } from '@utils/functions.js';
 import { kebabCase } from '@utils/helpers.js';
 
@@ -11,7 +12,8 @@ export const addServiceActions = (actions: any, data: any, srcRoot: string, conf
     const mocksDataBasePath = path.join(srcRoot, `${config.services.mocks.data}/`);
     const typesBasePath = path.join(srcRoot, `${config.services.types}`);
     const language = config.config.language;
-    const templatesPath = path.join(srcRoot, `source/plop-files/templates/${language}/service`);
+    const __dirname = path.dirname(fileURLToPath(import.meta.url));
+    const templatesPath = path.join(__dirname, 'plop-files', 'templates', language, 'service');
 
     data.config = config.services;
     data.pathToApi = apiFilePath.replace(`${srcRoot}/`, '');

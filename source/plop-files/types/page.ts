@@ -1,4 +1,5 @@
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { assertPatternInFile } from '@utils/functions.js';
 import { formatPath, kebabCase } from '@utils/helpers.js';
 
@@ -10,7 +11,8 @@ export const addPageActions = (actions: any, data: any, srcRoot: string, config:
     const basePath = path.join(srcRoot, `${config.pages.base}/${folderPath}`);
     const routesFilePath = path.join(srcRoot, config.pages.routes);
     const language = config.config.language;
-    const templatesPath = path.join(srcRoot, `source/plop-files/templates/${language}/page`);
+    const __dirname = path.dirname(fileURLToPath(import.meta.url));
+    const templatesPath = path.join(__dirname, 'plop-files', 'templates', language, 'page');
 
     data.config = config.pages;
     const importPattern = /\/\/-- plop hook for import --\/\//;

@@ -1,4 +1,5 @@
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import type { DataProps } from '@/models/app.js';
 import { getFolderByConfig } from '@utils/functions.js';
 
@@ -7,7 +8,9 @@ export const addComponentActions = (actions: any, data: DataProps, srcRoot: stri
     const folderName = getFolderByConfig(config.components.naming.folder, data.name || '');
     const basePath = path.join(srcRoot, `${config.components.base}/{{folder}}/${folderName}/`);
     const language = config.config.language;
-    const templatesPath = path.join(srcRoot, `source/plop-files/templates/${language}/component`);
+
+    const __dirname = path.dirname(fileURLToPath(import.meta.url));
+    const templatesPath = path.join(__dirname, 'plop-files', 'templates', language, 'component');
 
     data.config = config.components;
 
@@ -26,44 +29,44 @@ export const addComponentActions = (actions: any, data: DataProps, srcRoot: stri
         if (config.components.files.types === 'file') {
           actions.push({
             type: 'add',
-            path: path.join(basePath, `types.ts`),
+            path: path.join(basePath, 'types.ts'),
             templateFile: `${templatesPath}/types.ts.hbs`
           });
         }
         if (config.components.files.stories) {
           actions.push({
             type: 'add',
-            path: path.join(basePath, `{{pascalName}}.stories.tsx`),
+            path: path.join(basePath, '{{pascalName}}.stories.tsx'),
             templateFile: `${templatesPath}/stories.tsx.hbs`
           });
         }
         if (config.components.files.test) {
           actions.push({
             type: 'add',
-            path: path.join(basePath, `{{pascalName}}.test.tsx`),
+            path: path.join(basePath, '{{pascalName}}.test.tsx'),
             templateFile: `${templatesPath}/test.tsx.hbs`
           });
         }
         if (config.components.files.types === 'inline') {
           actions.push({
             type: 'add',
-            path: path.join(basePath, `{{pascalName}}.tsx`),
+            path: path.join(basePath, '{{pascalName}}.tsx'),
             templateFile: `${templatesPath}/component-inline.tsx.hbs`
           });
           actions.push({
             type: 'add',
-            path: path.join(basePath, `index.ts`),
+            path: path.join(basePath, 'index.ts'),
             templateFile: `${templatesPath}/index-inline.ts.hbs`
           });
         } else {
           actions.push({
             type: 'add',
-            path: path.join(basePath, `{{pascalName}}.tsx`),
+            path: path.join(basePath, '{{pascalName}}.tsx'),
             templateFile: `${templatesPath}/component-file.tsx.hbs`
           });
           actions.push({
             type: 'add',
-            path: path.join(basePath, `index.ts`),
+            path: path.join(basePath, 'index.ts'),
             templateFile: `${templatesPath}/index-file.ts.hbs`
           });
         }
@@ -72,25 +75,25 @@ export const addComponentActions = (actions: any, data: DataProps, srcRoot: stri
         if (config.components.files.stories) {
           actions.push({
             type: 'add',
-            path: path.join(basePath, `{{pascalName}}.stories.jsx`),
+            path: path.join(basePath, '{{pascalName}}.stories.jsx'),
             templateFile: `${templatesPath}/stories.jsx.hbs`
           });
         }
         if (config.components.files.test) {
           actions.push({
             type: 'add',
-            path: path.join(basePath, `{{pascalName}}.test.jsx`),
+            path: path.join(basePath, '{{pascalName}}.test.jsx'),
             templateFile: `${templatesPath}/test.jsx.hbs`
           });
         }
         actions.push({
           type: 'add',
-          path: path.join(basePath, `{{pascalName}}.jsx`),
+          path: path.join(basePath, '{{pascalName}}.jsx'),
           templateFile: `${templatesPath}/component.jsx.hbs`
         });
         actions.push({
           type: 'add',
-          path: path.join(basePath, `index.js`),
+          path: path.join(basePath, 'index.js'),
           templateFile: `${templatesPath}/index.js.hbs`
         });
         break;

@@ -1,6 +1,6 @@
 {
   "name": "@egdev6/compilot-cli",
-  "version": "1.0.1",
+  "version": "1.0.7",
   "license": "MIT",
   "bin": {
     "compilot-cli": "./build/index.js"
@@ -10,8 +10,7 @@
     "node": ">=16"
   },
   "scripts": {
-    "build": "tsc && tsc-alias && ncc build dist/cli.js -o build && chmod +x ./build/index.js",
-    "postbuild": "cp -r source/plop-files/templates dist/plop-files/",
+    "build": "tsc && tsc-alias && cp -r source/plop-files/templates dist/plop-files/ && ncc build dist/cli.js -o build && cp -r dist/plop-files build/plop-files && chmod +x ./build/index.js",
     "dev": "tsc --watch",
     "clean": "rm -rf dist node_modules package-lock.json && npm cache clean --force",
     "reinstall": "npm run clean && npm install",
@@ -19,7 +18,7 @@
     "biome-staged": "biome check . --write --staged --verbose",
     "pre-commit": "npm run biome-staged && git add -A"
   },
-  "files": ["dist", "build"],
+  "files": ["build"],
   "dependencies": {
     "cli-tree": "0.0.1",
     "ink": "5.2.0",
@@ -36,7 +35,7 @@
     "react": "18.3.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
+    "@biomejs/biome": "^1.9.4",
     "@sindresorhus/tsconfig": "7.0.0",
     "@types/react": "19.1.2",
     "@vercel/ncc": "0.38.3",

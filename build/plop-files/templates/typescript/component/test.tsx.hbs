@@ -1,0 +1,12 @@
+import { render } from '@testing-library/react';
+import {{pascalName}} from './{{pascalName}}';
+
+describe('{{pascalName}} Test', () => {
+ test('renders correctly', () => {
+    const { getByText } = render(
+      <{{pascalName}} name='test' />,
+    );
+
+    expect(getByText('test')).toBeInTheDocument();
+  });
+});

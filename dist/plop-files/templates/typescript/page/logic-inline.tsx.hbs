@@ -1,0 +1,14 @@
+import type { FC } from 'react';
+import { {{pascalName}}PageView } from './{{pascalName}}PageView';
+
+export type {{pascalName}}PageProps = {
+  name?: string;
+};
+
+// Here you can add your page logic
+const {{pascalName}}Page: FC<{{pascalName}}PageProps> = () => {
+  const name = '{{pascalName}}';
+  return <{{pascalName}}PageView name={name}/>;
+};
+
+export default {{pascalName}}Page;

@@ -1,4 +1,5 @@
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { assertPatternInFile } from '@utils/functions.js';
 import { kebabCase } from '@utils/helpers.js';
 
@@ -8,7 +9,8 @@ export const addHookActions = (actions: any, data: any, srcRoot: string, config:
     const basePath = path.join(srcRoot, `${config.hooks.base}/${folderName}/`);
     const providerFilePath = path.join(srcRoot, config.hooks.context.file);
     const language = config.config.language;
-    const templatesPath = path.join(srcRoot, `source/plop-files/templates/${language}/hook/${data.state}`);
+    const __dirname = path.dirname(fileURLToPath(import.meta.url));
+    const templatesPath = path.join(__dirname, 'plop-files', 'templates', language, 'hook', data.state);
 
     data.config = config.hooks;
     const importPattern = /\/\/-- plop hook for import --\/\//;
