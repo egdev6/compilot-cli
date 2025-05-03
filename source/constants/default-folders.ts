@@ -1,0 +1,43 @@
+export const defaultFolders = {
+  config: {
+    language: 'typescript',
+    generatedFiles: true,
+    openFiles: true
+  },
+  components: {
+    base: 'src/components',
+    atomic: true,
+    naming: {
+      folder: 'kebabCase'
+    },
+    files: {
+      types: 'file',
+      stories: true,
+      test: false
+    }
+  },
+  pages: {
+    base: 'src/pages',
+    routes: 'src/app/Router.tsx',
+    files: {
+      types: 'file',
+      lazy: true
+    }
+  },
+  hooks: {
+    base: 'src/hooks',
+    context: {
+      file: 'src/app/main.tsx',
+      mode: 'tree'
+    }
+  },
+  services: {
+    base: 'src/services',
+    axios: 'src/config/axios',
+    types: 'src/models/api',
+    mocks: {
+      data: 'src/mocks/data',
+      server: 'src/mocks/server.ts'
+    }
+  }
+};

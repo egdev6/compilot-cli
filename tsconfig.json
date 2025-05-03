@@ -8,7 +8,9 @@
 			"@components/*": ["./source/components/*"],
 			"@models/*": ["./source/models/*"],
 			"@hooks/*": ["./source/hooks/*"],
-			"@utils/*": ["./source/utils/*"]
+			"@utils/*": ["./source/utils/*"],
+			"@constants/*": ["./source/constants/*"],
+			"@plop-files/*": ["./source/plop-files/*"],
 		}
 	},
 	"include": ["source"]

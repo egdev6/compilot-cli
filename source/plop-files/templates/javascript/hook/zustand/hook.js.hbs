@@ -1,0 +1,15 @@
+import { use{{pascalName}}Store } from './store';
+
+const use{{pascalName}} = () => {
+  const {
+    test,
+    setTest
+  } = use{{pascalName}}Store();
+
+  return {
+    test,
+    setTest
+  };
+};
+
+export default use{{pascalName}};
