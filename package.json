@@ -1,6 +1,6 @@
 {
-	"name": "compilot-cli",
-	"version": "1.0.0",
+	"name": "@egdev6/compilot-cli",
+	"version": "1.0.1",
 	"license": "MIT",
 	"bin": {
 		"compilot-cli": "./build/index.js"
@@ -16,12 +16,10 @@
 		"clean": "rm -rf dist node_modules package-lock.json && npm cache clean --force",
 		"reinstall": "npm run clean && npm install",
 		"biome-all": "biome check --write .",
-		"biome-staged": "biome check --write --staged --verbose",
-		"pre-commit": "npm run biome-staged && tsc"
+		"biome-staged": "biome check . --write --staged --verbose",
+		"pre-commit": "npm run biome-staged && tsc && git add -A"
 	},
-	"files": [
-		"dist"
-	],
+	"files": ["dist", "build"],
 	"dependencies": {
 		"cli-tree": "0.0.1",
 		"ink": "5.2.0",
@@ -31,9 +29,9 @@
 		"ink-spinner": "5.0.0",
 		"ink-text-input": "6.0.0",
 		"module-alias": "2.2.3",
-		"nanoid": "^5.1.5",
+		"nanoid": "5.1.5",
 		"node-plop": "0.32.0",
-		"open": "^10.1.1",
+		"open": "10.1.1",
 		"plop": "4.0.1",
 		"react": "18.3.1"
 	},
@@ -55,9 +53,7 @@
 			"ts": "module",
 			"tsx": "module"
 		},
-		"nodeArguments": [
-			"--loader=ts-node/esm"
-		]
+		"nodeArguments": ["--loader=ts-node/esm"]
 	},
 	"xo": {
 		"extends": "xo-react",
@@ -65,5 +61,13 @@
 		"rules": {
 			"react/prop-types": "off"
 		}
-	}
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/egdev6/compilot-cli.git"
+	},
+	"bugs": {
+		"url": "https://github.com/egdev6/compilot-cli/issues"
+	},
+	"homepage": "https://github.com/egdev6/compilot-cli#readme"
 }

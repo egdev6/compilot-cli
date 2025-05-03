@@ -1,0 +1,7 @@
+import { create } from "zustand";
+import type { {{pascalName}}StoreProps } from "./types";
+
+export const use{{pascalName}}Store = create<{{pascalName}}StoreProps>((set) => ({
+  test: "",
+  setTest: (value) => set({ test: value })
+}));
