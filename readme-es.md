@@ -111,7 +111,7 @@ El paquete incluye una configuración por defecto que define las rutas base y ex
 
 ### 🔧 Sobrescribir la Configuración
 
-Puedes crear un archivo compilot-cli.config.json en la raíz de tu proyecto para personalizar rutas, extensiones y comportamiento:
+Puedes crear un archivo compilot.config.json en la raíz de tu proyecto para personalizar rutas, extensiones y comportamiento:
 
 #### Ejemplo de configuración personalizada
 
