@@ -112,7 +112,7 @@ The package includes a default configuration file that defines the base paths an
 
 ### 🔧 Overriding the Configuration
 
-If you want to customize the paths or file extensions, you can create a `compilot-cli.config.json` file in the root of your project. This file will override the default configuration.
+If you want to customize the paths or file extensions, you can create a `compilot.config.json` file in the root of your project. This file will override the default configuration.
 
 #### Example of a Custom Configuration
 
