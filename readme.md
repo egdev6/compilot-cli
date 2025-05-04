@@ -15,13 +15,6 @@
 
 <div align="center">
 
-[![ES][es-shield]][readme-es-url]
-[![EN][en-shield]][readme-en-url]
-
-</div>
-
-<div align="center">
-
 [![Compilot-cli-Banner.png](https://i.postimg.cc/MTGc6VGK/Compilot-cli-Banner.png)](https://postimg.cc/WDQpSDrQ)
 
 
