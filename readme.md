@@ -153,7 +153,7 @@ In this example:
 - Files will be generated with the `.js` extension.
 - Disable output for generated files.
 - Components will be created in the `custom/components` folder.
-- The "atomic" methodology is disbaled
+- The "atomic" methodology is disabled
 - The component folder in pascalCase
 - Disable .stories and .test generated files
 
@@ -210,28 +210,6 @@ Ensure than file path is correctly configured:
 		}
 	},
 ```
-
-I recommend configure this package in your project: https://github.com/reinerBa/vite-plugin-mock-simple
-
-Move all the calls in mockSimple([]) to a folder and export it for vite.
-
-```javascript
-import mockSimple from 'vite-plugin-mock-simple'
-import { mockServer } from 'src/mocks/mockServer.ts'
-
-export default defineConfig({
-  plugins: [
-    mockSimple(mockServer)
-  ]
-})
-```
-
-Add this variable to your .env.development
-
-```
-VITE_ENVIROPMENT='DEV'
-```
-
 #### 🧪 Adding Lazy Imports and Routes for Pages
 
 If you want the `page` type to automatically insert a lazy/regular import and the route into your routes file, you need to add specific comments to the file configured in `config.pages.routes`. These comments act as placeholders where the tool will append the necessary code.
@@ -260,6 +238,28 @@ If you want the `service` type to automatically insert a mock into your server f
 		}
 	}
 ```
+
+I recommend configure this package in your project: https://github.com/reinerBa/vite-plugin-mock-simple
+
+Move all the calls in mockSimple([]) to a folder and export it for vite.
+
+```javascript
+import mockSimple from 'vite-plugin-mock-simple'
+import { mockServer } from 'src/mocks/mockServer.ts'
+
+export default defineConfig({
+  plugins: [
+    mockSimple(mockServer)
+  ]
+})
+```
+
+Add this variable to your .env.development
+
+```
+VITE_ENVIROPMENT='DEV'
+```
+
 
 #### Required Comments 
 
