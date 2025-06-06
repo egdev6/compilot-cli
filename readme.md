@@ -77,7 +77,7 @@ The package includes a default configuration file that defines the base paths an
 ```json
 {
 	"config": {
-		"language": "typescript", // ["typescript", ["javascript"]]
+		"language": "typescript", // ["typescript", "javascript"]
 		"generatedFiles": true, // [true, false]
 		"openFiles": true // [true, false]
 	},
@@ -113,7 +113,7 @@ The package includes a default configuration file that defines the base paths an
 		"axios": "src/config/axios",
 		"types": "src/models/api",
 		"mocks": {
-			"enabled": true,
+			"enabled": true, // [true, false]
 			"data": "src/mocks/data",
 			"server": "src/mocks/server.ts"
 		}
