@@ -9,7 +9,7 @@ export const addHookActions = (actions, data, srcRoot, config) => {
         const providerFilePath = path.join(srcRoot, config.hooks.context.file);
         const language = config.config.language;
         const __dirname = path.dirname(fileURLToPath(import.meta.url));
-        const templatesPath = path.join(__dirname, '../', 'templates', language, 'hook', data.state);
+        const templatesPath = path.join(__dirname, 'plop-files', 'templates', language, 'hook', data.state);
         data.config = config.hooks;
         const importPattern = /\/\/-- plop hook for import --\/\//;
         const providerPattern = /^\s*\{\s*\/\*--\s*plop hook for provider\s*--\*\/\s*\}\s*<App\s*\/?>/m;

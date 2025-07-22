@@ -7,7 +7,7 @@ export const addComponentActions = (actions, data, srcRoot, config) => {
         const basePath = path.join(srcRoot, `${config.components.base}/{{folder}}/${folderName}/`);
         const language = config.config.language;
         const __dirname = path.dirname(fileURLToPath(import.meta.url));
-        const templatesPath = path.join(__dirname, '../', 'templates', language, 'component');
+        const templatesPath = path.join(__dirname, 'plop-files', 'templates', language, 'component');
         data.config = config.components;
         if (data?.folder) {
             const folderSegments = data.folder.split('/');
@@ -62,6 +62,11 @@ export const addComponentActions = (actions, data, srcRoot, config) => {
                         type: 'add',
                         path: path.join(basePath, 'index.ts'),
                         templateFile: `${templatesPath}/index-file.ts.hbs`
+                    });
+                    actions.push({
+                        type: 'add',
+                        path: path.join(basePath, 'use{{pascalName}}.ts'),
+                        templateFile: `${templatesPath}/hook-file.ts.hbs`
                     });
                 }
                 break;

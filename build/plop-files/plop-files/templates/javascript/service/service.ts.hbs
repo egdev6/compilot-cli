@@ -1,7 +1,0 @@
-import { api } from '{{pathToApi}}';
-
-export const {{kebabCase http}}{{pascalName}} = async ({ test }) => {
-  const response = await api.{{kebabCase http}}(`/{{kebabName}}?test=${test}`);
-  const data = response.data;
-  return data;
-};

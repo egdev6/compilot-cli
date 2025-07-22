@@ -12,7 +12,7 @@ export const addServiceActions = (actions, data, srcRoot, config) => {
         const typesBasePath = path.join(srcRoot, `${config.services.types}`);
         const language = config.config.language;
         const __dirname = path.dirname(fileURLToPath(import.meta.url));
-        const templatesPath = path.join(__dirname, '../', 'templates', language, 'services');
+        const templatesPath = path.join(__dirname, 'plop-files', 'templates', language, 'service');
         data.config = config.services;
         data.pathToApi = apiFilePath.replace(`${srcRoot}/`, '');
         data.pathToTypes = typesBasePath.replace(`${srcRoot}/`, '');

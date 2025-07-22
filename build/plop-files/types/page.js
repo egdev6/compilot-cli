@@ -10,7 +10,7 @@ export const addPageActions = (actions, data, srcRoot, config) => {
         const routesFilePath = path.join(srcRoot, config.pages.routes);
         const language = config.config.language;
         const __dirname = path.dirname(fileURLToPath(import.meta.url));
-        const templatesPath = path.join(__dirname, '../', 'templates', language, 'page');
+        const templatesPath = path.join(__dirname, 'plop-files', 'templates', language, 'page');
         data.config = config.pages;
         const importPattern = /\/\/-- plop hook for import --\/\//;
         const routePattern = /{\s*\/\*\s*-- plop hook for route --\s*\*\/\s*}/;
