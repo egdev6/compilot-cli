@@ -15,13 +15,6 @@
 
 <div align="center">
 
-[![ES][es-shield]][readme-es-url]
-[![EN][en-shield]][readme-en-url]
-
-</div>
-
-<div align="center">
-
 [![Compilot-cli-Banner.png](https://i.postimg.cc/MTGc6VGK/Compilot-cli-Banner.png)](https://postimg.cc/WDQpSDrQ)
 
 
@@ -84,7 +77,7 @@ The package includes a default configuration file that defines the base paths an
 ```json
 {
 	"config": {
-		"language": "typescript", // ["typescript", ["javascript"]]
+		"language": "typescript", // ["typescript", "javascript"]
 		"generatedFiles": true, // [true, false]
 		"openFiles": true // [true, false]
 	},
@@ -120,7 +113,7 @@ The package includes a default configuration file that defines the base paths an
 		"axios": "src/config/axios",
 		"types": "src/models/api",
 		"mocks": {
-			"enabled": true,
+			"enabled": true, // [true, false]
 			"data": "src/mocks/data",
 			"server": "src/mocks/server.ts"
 		}
@@ -160,7 +153,7 @@ In this example:
 - Files will be generated with the `.js` extension.
 - Disable output for generated files.
 - Components will be created in the `custom/components` folder.
-- The "atomic" methodology is disbaled
+- The "atomic" methodology is disabled
 - The component folder in pascalCase
 - Disable .stories and .test generated files
 
@@ -217,28 +210,6 @@ Ensure than file path is correctly configured:
 		}
 	},
 ```
-
-I recommend configure this package in your project: https://github.com/reinerBa/vite-plugin-mock-simple
-
-Move all the calls in mockSimple([]) to a folder and export it for vite.
-
-```javascript
-import mockSimple from 'vite-plugin-mock-simple'
-import { mockServer } from 'src/mocks/mockServer.ts'
-
-export default defineConfig({
-  plugins: [
-    mockSimple(mockServer)
-  ]
-})
-```
-
-Add this variable to your .env.development
-
-```
-VITE_ENVIROPMENT='DEV'
-```
-
 #### 🧪 Adding Lazy Imports and Routes for Pages
 
 If you want the `page` type to automatically insert a lazy/regular import and the route into your routes file, you need to add specific comments to the file configured in `config.pages.routes`. These comments act as placeholders where the tool will append the necessary code.
@@ -267,6 +238,28 @@ If you want the `service` type to automatically insert a mock into your server f
 		}
 	}
 ```
+
+I recommend configure this package in your project: https://github.com/reinerBa/vite-plugin-mock-simple
+
+Move all the calls in mockSimple([]) to a folder and export it for vite.
+
+```javascript
+import mockSimple from 'vite-plugin-mock-simple'
+import { mockServer } from 'src/mocks/mockServer.ts'
+
+export default defineConfig({
+  plugins: [
+    mockSimple(mockServer)
+  ]
+})
+```
+
+Add this variable to your .env.development
+
+```
+VITE_ENVIROPMENT='DEV'
+```
+
 
 #### Required Comments 
 
@@ -303,8 +296,9 @@ This project is licensed under the MIT License. See the LICENSE file for more de
 <div align="center">
 
 [![image](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/egdev/)
-[![image](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://x.com/egdev6)
-[![image](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:egdev6o@gmail.com)
+[![image](https://img.shields.io/badge/Instagram-purple?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/egdev6/)
+![image](https://img.shields.io/badge/Egdev5285-8C9EFF?style=for-the-badge&logo=discord&logoColor=white)
+[![image](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:egdev6@gmail.com)
 
 </div>
 

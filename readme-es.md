@@ -211,27 +211,6 @@ Si eliges "context" al crear un hook, se puede insertar automáticamente en tu a
 	},
 ```
 
-Recomiendo configurar este paquete en tu proyecto https://github.com/reinerBa/vite-plugin-mock-simple
-	1.	Mueve todas las llamadas dentro de mockSimple([]) a una carpeta específica.
-	2.	Exporta esa configuración desde dicha carpeta para usarla en Vite.
-
-```javascript
-import mockSimple from 'vite-plugin-mock-simple'
-import { mockServer } from 'src/mocks/mockServer.ts'
-
-export default defineConfig({
-  plugins: [
-    mockSimple(mockServer)
-  ]
-})
-```
-
-Además, añade esta variable en tu archivo .env.development:
-
-```
-VITE_ENVIROPMENT='DEV'
-```
-
 #### 🧪 Añadir Imports Lazy y Rutas para las Páginas
 
 Si quieres que el tipo page inserte automáticamente un import lazy (o regular) y su correspondiente ruta en tu archivo de rutas, debes añadir comentarios específicos en el archivo definido en config.pages.routes.
@@ -265,6 +244,27 @@ Estos comentarios actuarán como marcadores donde la herramienta insertará el c
 			"server": "src/mocks/server.ts"
 		}
 	}
+```
+
+Recomiendo configurar este paquete en tu proyecto https://github.com/reinerBa/vite-plugin-mock-simple
+	1.	Mueve todas las llamadas dentro de mockSimple([]) a una carpeta específica.
+	2.	Exporta esa configuración desde dicha carpeta para usarla en Vite.
+
+```javascript
+import mockSimple from 'vite-plugin-mock-simple'
+import { mockServer } from 'src/mocks/mockServer.ts'
+
+export default defineConfig({
+  plugins: [
+    mockSimple(mockServer)
+  ]
+})
+```
+
+Además, añade esta variable en tu archivo .env.development:
+
+```
+VITE_ENVIROPMENT='DEV'
 ```
 
 #### Comentarios Requeridos
