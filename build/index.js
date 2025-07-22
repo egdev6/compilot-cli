@@ -74125,20 +74125,20 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([ink_
 
 
 const defaultData = {
-    name: "",
-    type: "",
-    http: "",
-    state: "",
-    folder: "",
+    name: '',
+    type: '',
+    http: '',
+    state: '',
+    folder: '',
     changes: undefined,
     errors: undefined,
     warnings: undefined,
-    pascalName: "",
-    kebabName: "",
-    camelName: "",
+    pascalName: '',
+    kebabName: '',
+    camelName: ''
 };
 const App = () => {
-    const [step, setStep] = (0,react__WEBPACK_IMPORTED_MODULE_4__.useState)("type");
+    const [step, setStep] = (0,react__WEBPACK_IMPORTED_MODULE_4__.useState)('type');
     const [dataList, setDataList] = (0,react__WEBPACK_IMPORTED_MODULE_4__.useState)([]);
     const [data, setData] = (0,react__WEBPACK_IMPORTED_MODULE_4__.useState)(defaultData);
     // biome-ignore lint/suspicious/noExplicitAny: <explanation>
@@ -74151,7 +74151,7 @@ const App = () => {
         }
     }, []);
     (0,react__WEBPACK_IMPORTED_MODULE_4__.useEffect)(() => {
-        if (step === "new") {
+        if (step === 'new') {
             setData(defaultData);
         }
     }, [step]);
@@ -74164,48 +74164,45 @@ const App = () => {
             const updatedData = { ...data, [key]: value };
             const plop = await (0,node_plop__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)();
             (0,_plop_files_setup_plop_js__WEBPACK_IMPORTED_MODULE_13__/* .setupPlop */ .X)(plop);
-            const generator = plop.getGenerator("crear");
+            const generator = plop.getGenerator('crear');
             const { changes, failures } = await generator.runActions(updatedData);
             const warnings = failures.filter(_utils_functions_js__WEBPACK_IMPORTED_MODULE_0__/* .isWarning */ .Vv);
             const errors = failures.filter((f) => !(0,_utils_functions_js__WEBPACK_IMPORTED_MODULE_0__/* .isWarning */ .Vv)(f));
             const changesTree = changes
-                .filter((change) => change.type === "add")
-                .map((change) => change.path.replace(`${process.cwd()}/`, ""));
-            setDataList([
-                ...dataList,
-                { ...updatedData, changes: changesTree, errors, warnings },
-            ]);
-            setStep("new");
+                .filter((change) => change.type === 'add')
+                .map((change) => change.path.replace(`${process.cwd()}/`, ''));
+            setDataList([...dataList, { ...updatedData, changes: changesTree, errors, warnings }]);
+            setStep('new');
         }
     };
     const renderFolderByType = (type) => {
         switch (type) {
-            case "page":
-                return (react__WEBPACK_IMPORTED_MODULE_4__.createElement(_components_steps_FolderPageInput_js__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .A, { next: next, data: data, setData: setData, config: (0,_utils_load_config_js__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A)() }));
-            case "component":
+            case 'page':
+                return react__WEBPACK_IMPORTED_MODULE_4__.createElement(_components_steps_FolderPageInput_js__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .A, { next: next, data: data, setData: setData, config: (0,_utils_load_config_js__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A)() });
+            case 'component':
                 if (config.components.atomic) {
                     return react__WEBPACK_IMPORTED_MODULE_4__.createElement(_components_steps_FolderAtomicInput_js__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .A, { next: next });
                 }
-                next("folder", config?.components.base, null);
+                next('folder', config?.components.base, null);
                 return;
-            case "hook":
-                next("folder", config.hooks.base, null);
+            case 'hook':
+                next('folder', config.hooks.base, null);
                 return;
-            case "service":
-                next("folder", config.services.base, null);
+            case 'service':
+                next('folder', config.services.base, null);
                 return;
             default:
                 return null;
         }
     };
-    return (react__WEBPACK_IMPORTED_MODULE_4__.createElement(ink__WEBPACK_IMPORTED_MODULE_2__/* .Box */ .az, { flexDirection: "column" },
+    return (react__WEBPACK_IMPORTED_MODULE_4__.createElement(ink__WEBPACK_IMPORTED_MODULE_2__/* .Box */ .az, { flexDirection: 'column' },
         react__WEBPACK_IMPORTED_MODULE_4__.createElement(_components_partials_Summary_js__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A, { dataList: dataList, data: data }),
-        step === "type" && react__WEBPACK_IMPORTED_MODULE_4__.createElement(_components_steps_TypeInput_js__WEBPACK_IMPORTED_MODULE_12__/* ["default"] */ .A, { next: next }),
-        step === "name" && (react__WEBPACK_IMPORTED_MODULE_4__.createElement(_components_steps_NameInput_js__WEBPACK_IMPORTED_MODULE_9__/* ["default"] */ .A, { next: next, data: data, setData: setData, config: config })),
-        step === "http" && react__WEBPACK_IMPORTED_MODULE_4__.createElement(_components_steps_HttpInput_js__WEBPACK_IMPORTED_MODULE_8__/* ["default"] */ .A, { next: next, data: data }),
-        step === "state" && react__WEBPACK_IMPORTED_MODULE_4__.createElement(_components_steps_StateInput_js__WEBPACK_IMPORTED_MODULE_11__/* ["default"] */ .A, { next: next }),
-        step === "folder" && renderFolderByType(data?.type || ""),
-        step === "new" && react__WEBPACK_IMPORTED_MODULE_4__.createElement(_components_steps_NewAction_js__WEBPACK_IMPORTED_MODULE_10__/* ["default"] */ .A, { setStep: setStep })));
+        step === 'type' && react__WEBPACK_IMPORTED_MODULE_4__.createElement(_components_steps_TypeInput_js__WEBPACK_IMPORTED_MODULE_12__/* ["default"] */ .A, { next: next }),
+        step === 'name' && react__WEBPACK_IMPORTED_MODULE_4__.createElement(_components_steps_NameInput_js__WEBPACK_IMPORTED_MODULE_9__/* ["default"] */ .A, { next: next, data: data, setData: setData, config: config }),
+        step === 'http' && react__WEBPACK_IMPORTED_MODULE_4__.createElement(_components_steps_HttpInput_js__WEBPACK_IMPORTED_MODULE_8__/* ["default"] */ .A, { next: next, data: data }),
+        step === 'state' && react__WEBPACK_IMPORTED_MODULE_4__.createElement(_components_steps_StateInput_js__WEBPACK_IMPORTED_MODULE_11__/* ["default"] */ .A, { next: next }),
+        step === 'folder' && renderFolderByType(data?.type || ''),
+        step === 'new' && react__WEBPACK_IMPORTED_MODULE_4__.createElement(_components_steps_NewAction_js__WEBPACK_IMPORTED_MODULE_10__/* ["default"] */ .A, { setStep: setStep })));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
 
@@ -74897,6 +74894,11 @@ const addComponentActions = (actions, data, srcRoot, config) => {
                         type: 'add',
                         path: external_node_path_.join(basePath, 'index.ts'),
                         templateFile: `${templatesPath}/index-file.ts.hbs`
+                    });
+                    actions.push({
+                        type: 'add',
+                        path: external_node_path_.join(basePath, 'use{{pascalName}}.ts'),
+                        templateFile: `${templatesPath}/hook-file.ts.hbs`
                     });
                 }
                 break;

@@ -63,6 +63,11 @@ export const addComponentActions = (actions, data, srcRoot, config) => {
                         path: path.join(basePath, 'index.ts'),
                         templateFile: `${templatesPath}/index-file.ts.hbs`
                     });
+                    actions.push({
+                        type: 'add',
+                        path: path.join(basePath, 'use{{pascalName}}.ts'),
+                        templateFile: `${templatesPath}/hook-file.ts.hbs`
+                    });
                 }
                 break;
             case 'javascript':

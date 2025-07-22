@@ -1,6 +1,6 @@
 {
   "name": "@egdev6/compilot-cli",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "license": "MIT",
   "bin": {
     "compilot-cli": "./build/index.js"
