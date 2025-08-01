@@ -306,6 +306,10 @@ Add the following comments to your mock file (e.g., `src/mocks/server.tsx`):
 Contributions are welcome! Please open an issue or submit a pull request for any enhancements or bug fixes.
 If you like the tool... 🌟 always help!!! 
 
+<a href="https://github.com/egdev6/compilot-cli/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=egdev6/compilot-cli&nocache=1" />
+</a>
+
 ## 📄 License
 
 This project is licensed under the MIT License. See the LICENSE file for more details.
