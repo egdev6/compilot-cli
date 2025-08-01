@@ -158,6 +158,25 @@ En este ejemplo:
 •	La carpeta del componente usará el formato PascalCase.
 •	No se generarán los archivos .stories ni .test.
 
+### 🔧 Ejemplos para Rutas Anidadas
+- **Estructura de Carpetas Anidadas**: Usa rutas de carpetas como `src/pages/home/user` para crear rutas anidadas.
+  - Comando: `npx compilot-cli`
+  - Tipo: `page`
+  - Nombre: `user`
+  - Carpeta: `src/pages/home/user`
+  - Resultado: Genera `src/pages/home/user/UserPage.jsx` con ruta añadida a `src/app/Router.tsx`.
+- **Múltiples Niveles Anidados**: Para `src/pages/admin/dashboard/settings`, repite el proceso.
+  - Nombre: `settings`
+  - Carpeta: `src/pages/admin/dashboard/settings`
+- **Ejemplo de Ruta Personalizada**: Añade un comentario en `Router.tsx` como:
+```jsx
+//-- plop hook for import --//
+{/*-- plop hook for route --*/}
+<Route path="/admin/*" element={<AdminLayout />}>
+  {/*-- plop hook for nested route --*/}
+</Route>
+```
+
 #### 🧪 Cómo funciona la Metodología “Atomic”
 
 Si está activada, los componentes se agrupan en atoms, molecules y organisms:
