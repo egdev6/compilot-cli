@@ -157,6 +157,25 @@ In this example:
 - The component folder in pascalCase
 - Disable .stories and .test generated files
 
+#### 🧪 Examples for Nested Routes
+- **Nested Folder Structure**: Use folder paths like `src/pages/home/user` to create nested routes.
+  - Command: `npx compilot-cli`
+  - Type: `page`
+  - Name: `user`
+  - Folder: `src/pages/home/user`
+  - Result: Generates `src/pages/home/user/UserPage.jsx` with route added to `src/app/Router.tsx`.
+- **Multiple Nested Levels**: For `src/pages/admin/dashboard/settings`, repeat the process.
+  - Name: `settings`
+  - Folder: `src/pages/admin/dashboard/settings`
+- **Custom Route Example**: Add a comment in `Router.tsx` like:
+  ```jsx
+  //-- plop hook for import --//
+  {/*-- plop hook for route --*/}
+  <Route path="/admin/*" element={<AdminLayout />}>
+    {/*-- plop hook for nested route --*/}
+  </Route>
+```
+
 #### 🧪 How the “Atomic” Methodology Works
 
 When the "atomic" methodology is enabled, the generated files will be organized into folders based on their atomic design category (e.g., `atoms`, `molecules`, `organisms`). For example:
