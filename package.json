@@ -16,7 +16,9 @@
     "reinstall": "npm run clean && npm install",
     "biome-all": "biome check --write .",
     "biome-staged": "biome check . --write --staged --verbose",
-    "pre-commit": "npm run biome-staged && git add -A"
+    "pre-commit": "npm run biome-staged && git add -A",
+    "mock:setup": "node -e \"require('./compilot.config.json').services.mocks.autoSetup && require('vite-plugin-mock-simple')\"",
+    "postinstall": "npm run mock:setup"
   },
   "files": ["build"],
   "dependencies": {
@@ -45,6 +47,7 @@
     "ts-node": "10.9.2",
     "tsc-alias": "1.8.15",
     "typescript": "5.8.3",
+    "vite-plugin-mock-simple": "^1.0.3",
     "xo": "0.60.0"
   },
   "ava": {
