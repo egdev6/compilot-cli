@@ -1575,7 +1575,7 @@ function expand(str, isTop) {
   var isOptions = m.body.indexOf(',') >= 0;
   if (!isSequence && !isOptions) {
     // {a},b}
-    if (m.post.match(/,.*\}/)) {
+    if (m.post.match(/,(?!,).*\}/)) {
       str = m.pre + '{' + m.body + escClose + m.post;
       return expand(str);
     }
@@ -76947,7 +76947,6 @@ function debounce(func, debounceMs, { signal, edges } = {}) {
         pendingArgs = null;
     };
     const flush = () => {
-        cancelTimer();
         invoke();
     };
     const debounced = function (...args) {
@@ -76978,7 +76977,7 @@ function debounce_debounce(func, debounceMs = 0, options = {}) {
     if (typeof options !== 'object') {
         options = {};
     }
-    const { signal, leading = false, trailing = true, maxWait } = options;
+    const { leading = false, trailing = true, maxWait } = options;
     const edges = Array(2);
     if (leading) {
         edges[0] = 'leading';
@@ -76991,20 +76990,18 @@ function debounce_debounce(func, debounceMs = 0, options = {}) {
     const _debounced = debounce(function (...args) {
         result = func.apply(this, args);
         pendingAt = null;
-    }, debounceMs, { signal, edges });
+    }, debounceMs, { edges });
     const debounced = function (...args) {
         if (maxWait != null) {
             if (pendingAt === null) {
                 pendingAt = Date.now();
             }
-            else {
-                if (Date.now() - pendingAt >= maxWait) {
-                    result = func.apply(this, args);
-                    pendingAt = Date.now();
-                    _debounced.cancel();
-                    _debounced.schedule();
-                    return result;
-                }
+            if (Date.now() - pendingAt >= maxWait) {
+                result = func.apply(this, args);
+                pendingAt = Date.now();
+                _debounced.cancel();
+                _debounced.schedule();
+                return result;
             }
         }
         _debounced.apply(this, args);
@@ -77025,15 +77022,11 @@ function debounce_debounce(func, debounceMs = 0, options = {}) {
 
 
 function throttle(func, throttleMs = 0, options = {}) {
-    if (typeof options !== 'object') {
-        options = {};
-    }
-    const { leading = true, trailing = true, signal } = options;
+    const { leading = true, trailing = true } = options;
     return debounce_debounce(func, throttleMs, {
         leading,
-        trailing,
-        signal,
         maxWait: throttleMs,
+        trailing,
     });
 }
 

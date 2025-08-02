@@ -177,6 +177,22 @@ En este ejemplo:
 </Route>
 ```
 
+#### Soporte para Next.js
+Compilot CLI no soporta nativamente Next.js, pero puede integrarse manualmente:
+- Instala dependencias: `npm install -D vitest @vitejs/plugin-react jsdom`.
+- Configura `vitest.config.js`:
+  ```javascript
+  import { defineConfig } from 'vitest/config';
+  import react from '@vitejs/plugin-react';
+
+  export default defineConfig({
+    plugins: [react()],
+    test: {
+      environment: 'jsdom',
+    },
+  });
+  
+
 #### 🧪 Cómo funciona la Metodología “Atomic”
 
 Si está activada, los componentes se agrupan en atoms, molecules y organisms:

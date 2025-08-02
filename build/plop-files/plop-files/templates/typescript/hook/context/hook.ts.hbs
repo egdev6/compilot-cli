@@ -1,0 +1,20 @@
+import { type FC, type PropsWithChildren, useContext, useMemo, useState } from 'react';
+import {{pascalName}}Context from './context';
+
+export const {{pascalName}}Provider: FC<PropsWithChildren> = ({ children }) => {
+  const [test, setTest] = useState<string>('');
+
+  const value = useMemo(
+    () => ({
+      test,
+      setTest
+    }),
+    [test]
+  );
+
+  return <{{pascalName}}Context.Provider value={value}>{children}</{{pascalName}}Context.Provider>;
+};
+
+export const use{{pascalName}} = () => {
+  return useContext({{pascalName}}Context);
+};

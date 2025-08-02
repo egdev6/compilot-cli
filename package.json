@@ -10,7 +10,7 @@
     "node": ">=16"
   },
   "scripts": {
-    "build": "tsc && tsc-alias && cp -r source/plop-files/templates dist/plop-files/ && ncc build dist/cli.js -o build && cp -r dist/plop-files build/plop-files && chmod +x ./build/index.js",
+    "build": "tsc && tsc-alias && npx copyfiles -u 1 source/plop-files/templates/**/* dist/plop-files/ && ncc build dist/cli.js -o build && npx copyfiles -u 1 dist/plop-files/**/* build/plop-files/",
     "dev": "tsc --watch",
     "clean": "rm -rf dist node_modules package-lock.json && npm cache clean --force",
     "reinstall": "npm run clean && npm install",
@@ -43,6 +43,7 @@
     "@vercel/ncc": "0.38.3",
     "ava": "6.2.0",
     "chalk": "5.4.1",
+    "copyfiles": "^2.4.1",
     "lefthook": "1.11.11",
     "ts-node": "10.9.2",
     "tsc-alias": "1.8.15",
